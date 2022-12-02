@@ -196,3 +196,18 @@ export function calculateTotalPrice()
 
     return 88.88
 }
+
+export function clearCart()
+{
+    if(localStorage.getItem(LocalStorageId))
+    {
+        let emptyCart = {}
+        localStorage.setItem(LocalStorageId,JSON.stringify(emptyCart))
+    }
+    else 
+    {
+        console.log("Cart is already empty!")
+    }
+
+}
+

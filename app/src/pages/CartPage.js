@@ -9,7 +9,7 @@ import {
 } from '../core/cartActions';
 
 import { products } from '../core/products';
-import Checkout from './Checkout';
+import Footer from '../components/footer/Footer';
 
 import StripeContainer from '../StripeComponents/StripeContainer';
 
@@ -30,18 +30,32 @@ export const calculatePrice = (first, second)=>{
     return parseInt(first) + secondCalculated
 }
 
-const calculateTotalPrice = (productsParam)=>{
+const calculateTotalPrice = (productsParam, userType)=>{
     let pretTotal = 0
+    let adaugPersoanaJuridica = 3; //x%
     productsParam.forEach((product)=>{
         pretTotal += product["Bucati"] * calculatePrice(product.price.first,product.price.second).toFixed(2)
-
     })
+
+    pretTotal = pretTotal.toFixed(2)
+    pretTotal = parseFloat(pretTotal)
+
+    if(userType == 'persoanaJuridica')
+    {
+        let adaos = (3/100)*pretTotal
+        console.log("adaos:", adaos)
+        pretTotal += adaos
+    }
+    console.log("pret ")
     pretTotal = pretTotal.toFixed(2)
     return pretTotal
 }
 
 const CartPage = ()=>{
 
+    useEffect(()=>{
+        document.title = "Checkout - Ghazal Ambalaje"
+    },[])
     const [cartProducts, setCartProducts] = useState([]);
 
     const extractProductData = (mapParam)=>{
@@ -72,10 +86,16 @@ const CartPage = ()=>{
     const [exitPoint, setExitPoint] = useState(false);
 
     const handleExitPointClick = ()=>{
+        //daca cosul este gold, exit
+        if(cartProducts.length == 0)
+        {
+            return 
+        }
         setExitPoint(true);
     }
     
 
+    const [type, setType] = useState('persoanaFizica')
     
     return(
         <>
@@ -117,7 +137,15 @@ const CartPage = ()=>{
                                 <span>Finalizeaza Cumparaturile:</span>
                             </div>
                             <div className='cart-container-cart-headline-total'>
-                                <span><b>Total:</b> {calculateTotalPrice(cartProducts)}</span>
+                                <span className='cart-container-cart-headline-total-adaos'>
+                                    {
+                                        type == 'persoanaJuridica' ? '+3%':''
+                                    }
+                                </span>
+                                <span>
+                                    <b>Total:</b> 
+                                    {calculateTotalPrice(cartProducts, type)}
+                                    </span>
                             </div>  
                             <div className='cart-container-cart-headline-action'>
                                 <button className='continua-cumparturile'>Continua cumparaturile</button>
@@ -134,12 +162,19 @@ const CartPage = ()=>{
                     </div>
                     {
                         exitPoint == true ?
-                        <CollectCheckoutData totalPrice={calculateTotalPrice(cartProducts)} products={cartProducts}/>
+                        <CollectCheckoutData 
+                            totalPrice={calculateTotalPrice(cartProducts, type)} 
+                            products={cartProducts}
+                            type={type}
+                            setType={setType}
+                            />
                         :
                         null
                     }
                 </div>
-            </div>
+                <Footer />
+            </div>  
+            
         </>
     )
 }
@@ -201,27 +236,28 @@ const ActionsItem = ({icon, callback})=>{
     )
 }
 
-const CollectCheckoutData = ({products, totalPrice})=>{
-    const userTypes = {
-        persoanaFizica:[
-            ["Nume", "text"],
-            ["Prenume", "text"],
-            ["E-Mail", "text"],
-            ["Telefon", "number"],
-        ],
-        persoanaJuridica:[
-            ["Nume", "text"],
-            ["Prenume", "text"],
-            ["E-Mail", "text"],
-            ["Telefon", "number"],
-            ["Denumire Firma", "text"],
-            ["Cod fiscal (CUI)", "number"],
-            ["Nr. Reg. Com.", "number"],
-        ]
-    }
-    const locationFieldsInit =["Tara", "Judet", "Localitate", "Adresa"]
+export const userTypes = {
+    persoanaFizica:[
+        ["Nume", "text"],
+        ["Prenume", "text"],
+        ["E-Mail", "text"],
+        ["Telefon", "number"],
+    ],
+    persoanaJuridica:[
+        ["Nume", "text"],
+        ["Prenume", "text"],
+        ["E-Mail", "text"],
+        ["Telefon", "number"],
+        ["Denumire Firma", "text"],
+        ["Cod fiscal (CUI)", "number"],
+        ["Nr. Reg. Com.", "number"],
+    ]
+}
+export const locationFieldsInit =["Tara", "Judet", "Localitate", "Adresa"]
 
-    const [type, setType] = useState('persoanaFizica')
+const CollectCheckoutData = ({products, totalPrice,type,setType})=>{
+    
+    // const [type, setType] = useState('persoanaFizica')
     const handleTypeClick = (newType)=>{
         if(newType === 'persoanaFizica')
         {

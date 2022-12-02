@@ -1,0 +1,30 @@
+.pay-checkout-button-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pay-checkout-button
+{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: #89c149;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+.pay-checkout-button:hover 
+{
+    color: white;
+    background-color: #75a340;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.pay-checkout-check
+{
+    color: red;
+    padding: 10px;
+}

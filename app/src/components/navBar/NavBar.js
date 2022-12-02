@@ -25,11 +25,11 @@ const ItemsLeft = [
 const ItemsRight = [
   {
    icon: '/media/icons/facebook.png',
-   to: 'www.google.com'
+   to: 'https://www.facebook.com/profile.php?id=100087890926146'
   },
   {
    icon: '/media/icons/instagram.png',
-   to: 'www.google.com'
+   to: 'https://www.instagram.com/ghazal.ambalaje/'
   }
 ]
 
@@ -48,13 +48,15 @@ const NavBarLinks = [
    },
    {
       content: 'Contact',
-      to: '/checkout'
+      to: '/contact'
    }
 ]
 
 
 
 const NavbarCore = ()=>{
+   const navigate = useNavigate()
+
    const [howMany, setHowMany] = useState({
       counter: 0,
       total: 0.00
@@ -69,6 +71,9 @@ const NavbarCore = ()=>{
       },100)
    },[])
 
+   const handleIconRedirect = (dest)=>{
+      navigate(dest)
+   }
     return(
       <div className='navbar-container'>
          
@@ -87,9 +92,9 @@ const NavbarCore = ()=>{
                <div className='navbar-container-info-bar-right'>
                   {
                      ItemsRight.map((el)=>{
-                        return <Link to={el.to}>
+                        return <a href={el.to}>
                            <img src={el.icon}/>
-                        </Link>
+                           </a>
                      })
                   }
                </div>
@@ -100,7 +105,9 @@ const NavbarCore = ()=>{
          <div className='navbar-container-info-bar-demo'>
             <div className='navbar-container-info-bar-demo-padding'>
                <div className='navbar-container-info-bar-demo-logo'>
-                  <img src='/media/logo.png'/>
+                  <img
+                     onClick={()=>handleIconRedirect('/')} 
+                     src='/media/logo.png'/>
                </div>
                <div className='navbar-container-info-bar-demo-logo-text'>
                   <span><i>La noi gasiti toate tipurile de ambalaje biodegradabile, de la farfurii, caserole si pahare.</i></span>
@@ -128,7 +135,9 @@ const NavbarCore = ()=>{
                </div>
                <div className='navbar-container-info-navpanel-cart'>
                   <div className='navbar-container-info-navpanel-cart-container'>
-                     <img src="/media/icons/cart.png"/>
+                     <img
+                        onClick={()=>handleIconRedirect('/checkout')} 
+                        src="/media/icons/cart.png"/>
                      <div className='navbar-container-info-navpanel-cart-container-abs'>
                         <spann>{howMany.counter}</spann>
                      </div>
@@ -137,10 +146,6 @@ const NavbarCore = ()=>{
                </div>
 
             </div>
-
-            {/* <div className='navbar-container-info-navpanel-logo'>
-               <img src='/media/logo.png'/>
-            </div> */}
          </div>
 
       </div>

@@ -46,6 +46,9 @@ const FakeSpecificatii =[
     }
 ]
 const ProductPage = ()=>{
+    useEffect(()=>{
+        document.title = 'Ghazal Ambalaje Acasa'
+    },[])
     const navigate = useNavigate();
     const search = useLocation().search;
     let extractProduct = ()=>{
@@ -65,6 +68,8 @@ const ProductPage = ()=>{
             }
         })
     
+        console.log("found:", found)
+        document.title = found.title
         return found
     }
 

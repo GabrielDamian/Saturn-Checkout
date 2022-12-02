@@ -8,16 +8,15 @@ import {
 import Home from './pages/Home';
 import Categories from './pages/Categories';
 import ProductPage from "./pages/ProductPage";
-import Checkout from "./pages/Checkout";
 import './App.css';
 import CartPage from "./pages/CartPage";
-const Succes = ()=>{
-  return (
-    <p> 
-      Plata efectuata cu succes
-    </p>
-  )
-}
+import SuccessPayment from "./pages/SuccessPayment";
+import Despre from "./pages/Despre";
+import Contact from "./pages/Contact";
+import Termeni from "./pages/Termeni";
+import PoliticaCookies from "./pages/PoliticaCookies";
+import PoliticaRetur from "./pages/PoliticaRetur";
+import PoliticaConfidentialitate from "./pages/PoliticaConfidentialitate";
 
 const Failure = ()=>{
   return (
@@ -33,11 +32,17 @@ function App()
     <Router>
         <Routes>
           <Route exact path="/" element={<Home/>}/>
-          <Route exact path="/categories" element={<Categories/>}/>
+          <Route exact path="/despre" element={<Despre/>}/>
+          <Route exact path="/contact" element={<Contact/>}/>
           <Route exact path="/product" element={<ProductPage/>}/>
           <Route exact path="/checkout" element={<CartPage/>}/>
-          {/* <Route exact path="/success" element={<Succes/>}/> */}
-          {/* <Route exact path="/cancel" element={<Failure/>}/> */}
+          <Route exact path="/success" element={<SuccessPayment/>}/>
+          {/* Legal terms */}
+          <Route exact path="/termeni-si-conditii" element={<Termeni/>}/>
+          <Route exact path="/politica-de-utilizare-cookies" element={<PoliticaCookies/>}/>
+          <Route exact path="/politica-de-retur" element={<PoliticaRetur/>}/>
+          <Route exact path="/politica-de-confidentialitate" element={<PoliticaConfidentialitate/>}/>
+          
           </Routes>
     </Router>
   );

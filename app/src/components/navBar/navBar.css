@@ -99,6 +99,11 @@
 {
     height: 60px;
     object-fit: contain;
+    animation: rotate-logo 5s linear infinite;
+}
+@keyframes rotate-logo {
+    from {transform: rotateY(0deg);}
+	to {transform: rotateY(360deg);}
 }
 .navbar-container-info-bar-demo-logo-text
 {
@@ -203,6 +208,10 @@
 {
     height: 25px;
     object-fit: contain;   
+}
+.navbar-container-info-navpanel-cart-container img:hover 
+{
+    cursor: pointer;
 }
 .navbar-container-info-navpanel-cart span 
 {

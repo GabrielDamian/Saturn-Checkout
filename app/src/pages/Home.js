@@ -5,6 +5,7 @@ import LeftBar from '../components/navBar/LeftBar.js';
 import { products,filterProducts } from '../core/products.js';
 import { useNavigate } from 'react-router-dom';
 import {addToCart} from '../core/cartActions';
+import Footer from '../components/footer/Footer.js';
 
 export let facilitiesItems = [
     {
@@ -26,7 +27,9 @@ let banners = [
 ]
 const Home = ()=>{
     
-    
+    useEffect(()=>{
+        document.title = 'Ghazal Ambalaje Acasa'
+    },[])
     
     const [filteredProducts, setFilteredProducts] = useState(products);
     const [currentCategory, setCurrentCategory] = useState('caserole');
@@ -108,6 +111,7 @@ const Home = ()=>{
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     )
