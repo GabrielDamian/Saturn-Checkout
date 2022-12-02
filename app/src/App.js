@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter as Router,
   Routes ,
@@ -11,7 +10,7 @@ import Categories from './pages/Categories';
 import ProductPage from "./pages/ProductPage";
 import Checkout from "./pages/Checkout";
 import './App.css';
-
+import CartPage from "./pages/CartPage";
 const Succes = ()=>{
   return (
     <p> 
@@ -20,7 +19,6 @@ const Succes = ()=>{
   )
 }
 
-
 const Failure = ()=>{
   return (
     <p> 
@@ -28,6 +26,7 @@ const Failure = ()=>{
     </p>
   )
 }
+
 function App()
 {
   return (
@@ -36,9 +35,9 @@ function App()
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/categories" element={<Categories/>}/>
           <Route exact path="/product" element={<ProductPage/>}/>
-          <Route exact path="/checkout" element={<Checkout/>}/>
-          <Route exact path="/success" element={<Succes/>}/>
-          <Route exact path="/cancel" element={<Failure/>}/>
+          <Route exact path="/checkout" element={<CartPage/>}/>
+          {/* <Route exact path="/success" element={<Succes/>}/> */}
+          {/* <Route exact path="/cancel" element={<Failure/>}/> */}
           </Routes>
     </Router>
   );

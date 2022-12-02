@@ -1,0 +1,210 @@
+.navbar-container
+{
+    border-bottom: 1px solid gray;
+}
+.navbar-container-info-bar
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    /* background-color: #89c149; */
+    padding: 2px 0px;
+}
+.navbar-container-info-bar-padding
+{
+    width: 70%;
+    display: flex;
+}
+.navbar-container-info-bar-left
+{
+    display: flex;
+    flex-direction: row;
+    width: 33.33%;
+}
+.navbar-container-info-bar-center
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.33%;
+    font-size: 0.8rem;
+}
+.navbar-container-info-bar-right 
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 33.33%;
+}
+.navbar-container-info-bar-right a 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-container-info-bar-right img 
+{
+    height: 15px;
+    object-fit: contain;
+    margin: 0px 7px;
+}
+.navbar-container-info-bar-item
+{
+    margin: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-container-info-bar-item img 
+{
+    height: 15px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+.navbar-container-info-bar-item-link a
+{
+    text-decoration: none;
+    color: black;
+}
+.navbar-container-info-bar-item-link a:hover
+{
+    border-bottom: 1px solid gray;
+    transition: all 0.5s ease;
+}
+.navbar-container-info-bar-demo
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+    background-image: url("https://img.freepik.com/free-vector/3d-abstract-background-with-paper-cut-shapes-green-carving-art-paper-craft-landscape-with-gradient-fade-colors_1217-4014.jpg?w=1380&t=st=1669849108~exp=1669849708~hmac=1336161d02c4d61724e3a72231aa4c306af87f47ab42e6d889fec3422ff6970b");
+    background-size: cover;
+}
+.navbar-container-info-bar-demo-padding
+{
+    width: 70%;
+    display: flex;
+}
+.navbar-container-info-bar-demo-logo
+{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.navbar-container-info-bar-demo-logo img 
+{
+    height: 60px;
+    object-fit: contain;
+}
+.navbar-container-info-bar-demo-logo-text
+{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 30px;
+    font-size: 0.9rem;
+    color: white;
+}
+.navbar-container-info-navpanel
+{
+    display: flex;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-container-info-navpanel-padding
+{
+    width: 70%;
+    height: 100%;
+    display: flex;
+}
+.navbar-container-info-navpanel-logo
+{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-container-info-navpanel-logo img
+{
+    height: 100%;
+    object-fit: contain;
+}
+.navbar-container-info-navpanel-links
+{
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+.navbar-container-info-navpanel-links-item
+{
+    margin: 0px 20px;
+}
+.navbar-container-info-navpanel-links-item a 
+{
+    text-decoration: none;
+}
+.navbar-container-info-navpanel-links-item a:hover 
+{
+    border-bottom: 1px solid gray;
+    transition: all 0.3s ease;
+}
+.navbar-container-info-navpanel-banner
+{
+    width: 20%;
+    background-color: #89c149;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-container-info-navpanel-banner img 
+{
+    height: 20px;
+    margin-right: 10px;
+}
+.navbar-container-info-navpanel-cart
+{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navbar-container-info-navpanel-cart-container
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0px 10px;
+}
+.navbar-container-info-navpanel-cart-container-abs 
+{
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top:5px;
+    right:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #89c149;
+}
+.navbar-container-info-navpanel-cart-container img
+{
+    height: 25px;
+    object-fit: contain;   
+}
+.navbar-container-info-navpanel-cart span 
+{
+    margin:0px 10px;
+}

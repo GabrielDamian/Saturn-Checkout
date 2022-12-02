@@ -7,83 +7,87 @@ import {
     Route,
     Link
   } from "react-router-dom";
-const Checkout = ()=>{
 
-    const [data, setData] = useState([]);
-    const [total, setTotal] = useState(0);
+import './style/Checkout.css';
 
-    useEffect(()=>{
-        let products = localStorage.getItem('saturn-products')
-        if(products == null)
-        {
-            console.log("empty checkout")
-        }
-        else 
-        {
-           let extract = JSON.parse(products)
-           setData(extract)
-        }
-    },[])
 
-    const totalPrice = ()=>{
-        let counter = 0
+export const Checkout = ()=>{
 
-        let rawProducts = []
-        Object.keys(products).map((el)=>{
-            products[el].products.forEach((el_product)=>{
-                rawProducts.push(el_product)
-            })
-        })
+    // const [data, setData] = useState([]);
+    // const [total, setTotal] = useState(0);
 
-        data.forEach((product_to_find)=>{
-            rawProducts.forEach((el)=>{
-                if(el.id == product_to_find.id)
-                {
-                    counter += product_to_find.bucs * Number(el.pret);
-                }
-            })
-        })
-        setTotal(counter);
-    }
+    // useEffect(()=>{
+    //     let products = localStorage.getItem('saturn-products')
+    //     if(products == null)
+    //     {
+    //         console.log("empty checkout")
+    //     }
+    //     else 
+    //     {
+    //        let extract = JSON.parse(products)
+    //        setData(extract)
+    //     }
+    // },[])
 
-    useEffect(()=>{
-        if(data.length > 0)
-        {
-            totalPrice();
-        }
-    },[data])
+    // const totalPrice = ()=>{
+    //     let counter = 0
 
-    const payCheckout = async ()=>{
-        console.log("final:", data)
+    //     let rawProducts = []
+    //     Object.keys(products).map((el)=>{
+    //         products[el].products.forEach((el_product)=>{
+    //             rawProducts.push(el_product)
+    //         })
+    //     })
 
-        let formatData = data.map((el)=>{
-            return{
-                id: el.id,
-                quantity: el.bucs
-            }
-        })
+    //     data.forEach((product_to_find)=>{
+    //         rawProducts.forEach((el)=>{
+    //             if(el.id == product_to_find.id)
+    //             {
+    //                 counter += product_to_find.bucs * Number(el.pret);
+    //             }
+    //         })
+    //     })
+    //     setTotal(counter);
+    // }
 
-        console.log("Format data:",formatData)
+    // useEffect(()=>{
+    //     if(data.length > 0)
+    //     {
+    //         totalPrice();
+    //     }
+    // },[data])
 
-        await fetch('http://localhost:4000/checkout', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({items: formatData})
-        }).then((response) => {
-            return response.json();
-        }).then((response) => {
-            if(response.url) {
-                window.location.assign(response.url); // Forwarding user to Stripe
-            }
-        });
+    // const payCheckout = async ()=>{
+    //     console.log("final:", data)
 
-    }
+    //     let formatData = data.map((el)=>{
+    //         return{
+    //             id: el.id,
+    //             quantity: el.bucs
+    //         }
+    //     })
+
+    //     console.log("Format data:",formatData)
+
+    //     await fetch('http://localhost:4000/checkout', {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({items: formatData})
+    //     }).then((response) => {
+    //         return response.json();
+    //     }).then((response) => {
+    //         if(response.url) {
+    //             window.location.assign(response.url); // Forwarding user to Stripe
+    //         }
+    //     });
+
+    // }
 
     return(
         <>
-            <p>Checkout</p>
+            {/* <p>Checkout</p>
             <>
             {
                 data.map((el)=>{
@@ -94,11 +98,12 @@ const Checkout = ()=>{
             }
             </>
             <p>Total: {total} RON</p>
-            <button onClick={payCheckout}>Plateste</button>
+            <button onClick={payCheckout}>Plateste</button> */}
             <>
-                <StripeContainer />
+                <StripeContainer/>
             </>
         </>
     )
 }
+
 export default Checkout;

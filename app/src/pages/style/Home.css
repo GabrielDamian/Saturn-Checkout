@@ -1,0 +1,222 @@
+.homepage-container
+{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.homepage-container-padding
+{
+    width: 70%;
+    display: flex;
+}
+.homepage-container-padding-content 
+{
+    width: 82%;
+}
+.homepage-container-padding-content-top
+{
+    height: 50vh;
+    background-size: cover;
+    position: relative;
+}
+.homepage-container-padding-content-top img 
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.homepage-container-padding-content-top-left
+{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 30px;
+}
+.homepage-container-padding-content-top-left img 
+{
+    width: 100%;
+    object-fit: contain;
+}
+.homepage-container-padding-content-top-left img:hover 
+{
+    cursor: pointer;
+}
+.homepage-container-padding-content-top-right
+{
+    position: absolute;
+    top:0;
+    right:0;
+    height: 100%;
+    width: 30px;
+}
+.homepage-container-padding-content-top-right img 
+{
+    width: 100%;
+    object-fit: contain;
+}
+.homepage-container-padding-content-top-right img 
+{
+    cursor: pointer;
+}
+.homepage-container-padding-content-core
+{
+}
+.homepage-container-padding-content-core-desc
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.homepage-container-padding-content-core-desc-item
+{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    background-color: #89c149;
+    border: 1px solid white;
+    margin: 10px;
+    border-radius: 10px;
+    height: 70px;
+}
+.homepage-container-padding-content-core-desc-item img 
+{
+    height: 30px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+.homepage-container-padding-content-core-desc-item span 
+{
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.homepage-container-padding-content-products
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/*
+.homepage-container-top-section
+{
+    display: flex;
+    width: 100%;
+}
+ .homepage-container-content
+{
+    width: 80%;
+    height: 45vh;
+    background-image: url("https://ghazal-ambalaje.ro/static/media/bg-intro.d1502a46057870e42555.png");
+    background-size: cover;
+}
+
+
+/* Product Item */
+.home-product-item-container
+{
+    margin: 20px 10px;
+    width: 30%;
+    height: 330px;
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.61); 
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.61);
+    overflow: hidden;
+}
+.home-product-item-container:hover 
+{
+    cursor: pointer;
+}
+.home-product-item-container:hover  .home-product-item-container-desc
+{
+    background-color: rgb(246, 246, 246);
+    transition: all 0.3s ease;
+}
+.home-product-item-container-img
+{
+    height: 70%;
+    /* background-image: url("https://ghazal-ambalaje.ro/static/media/caserola_2.7ed63a3617c4959a463a.jpg"); */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.home-product-item-container-img-abs
+{
+    position: absolute;
+    height:40px;
+    width: 40px;
+    top:10px;
+    right:10px; 
+    animation: hide-cart 0.5s ease;
+    animation-fill-mode: forwards;
+    padding: 10px;
+    background-color: rgb(208, 208, 208);
+    z-index:0;
+}
+.home-product-item-container-img-abs:hover 
+{
+    background-color: rgb(234, 234, 234);
+}
+.home-product-item-container-img-abs img 
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.home-product-item-container-img:hover .home-product-item-container-img-abs 
+{
+    animation: show-cart 0.5s ease;
+    animation-fill-mode: forwards;
+} 
+@keyframes show-cart {
+    from{
+        transform: translateX(130%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes hide-cart {
+    from{
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(130%);
+    }
+}
+
+
+
+.home-product-item-container-desc
+{
+    height: 30%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+.home-product-item-container-desc-name
+{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.home-product-item-container-desc-price-1
+{
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: #fa6432;
+}
+.home-product-item-container-desc-price-2
+{
+    font-size: 0.7rem;
+    margin-left: 10px;
+}

@@ -1,6 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const CARD_OPTIONS = {
 	iconStyle: "solid",
@@ -22,7 +22,11 @@ const CARD_OPTIONS = {
 	}
 }
 
-export default function PaymentForm() {
+export default function PaymentForm({collectPayload}) {
+    useEffect(()=>{
+        console.log("collectPayload:", collectPayload().totalPrice)
+        console.log("collectPayload:", typeof collectPayload().totalPrice)
+    },[])
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
@@ -40,8 +44,9 @@ export default function PaymentForm() {
         try {
             const {id} = paymentMethod
             const response = await axios.post("http://localhost:4000/payment", {
-                amount: 1000,
-                id
+                amount: collectPayload().totalPrice,
+                id,
+                payload: {...collectPayload()}
             })
 
             if(response.data.success) {
@@ -73,7 +78,6 @@ export default function PaymentForm() {
            <h2>You just bought a sweet spatula congrats this is the best decision of you're life</h2>
        </div> 
         }
-            
         </>
     )
 }
